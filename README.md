@@ -1,2 +1,1 @@
-# PlugCoreAPI
-Plug Core API
+# PlugCore API
