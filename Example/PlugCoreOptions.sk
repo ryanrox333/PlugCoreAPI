@@ -7,7 +7,7 @@
 options:
     plugcoreEnableUpdates: false
 
-# First, create a function :)
+# First, create a function. They can't overlap so call it like SPCExampleScript or something like that.
 function exampleFunction(): # Can really be any function. Just needs to run on startup.
     set {plugcore::examplescript::name} to "ExampleScript"
     set {plugcore::examplescript::id} to "exscript"
@@ -16,8 +16,7 @@ function exampleFunction(): # Can really be any function. Just needs to run on s
     # Optional, probably want to make it toggable.
     if {@plugcoreEnableUpdates} is true:
         set {plugcore::examplescript::versionPackage} to "https://example.com/raw/version.txt"
-        set {plugcore::examplescript::updateUrlMain} to "https://example.com/raw/examplescript.sk"
-        set {plugcore::examplescript::updateUrlPlugCore} to "https://example.com/raw/PlugCoreOptions.sk"
+        set {plugcore::examplescript::updateURLPackage} to "https://example.com/raw/examplescript.zip"
     # Function requires a string to save your script into the Local DB.
     # It is required to use whatever you used in your plugcore variables.
     # EX: examplescript
