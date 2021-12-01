@@ -1,0 +1,32 @@
+# How to properly use PlugCore in your scripts!
+# Its pretty simple.
+# It does help to make your scripts into a folder.
+# Have a PlugCoreOptions.sk and your main file or files.
+
+# Options aren't required, just for updates.
+options:
+    plugcoreEnableUpdates: false
+
+# First, create a function :)
+function exampleFunction(): # Can really be any function. Just needs to run on startup.
+    set {plugcore::examplescript::name} to "ExampleScript"
+    set {plugcore::examplescript::id} to "exscript"
+    set {plugcore::examplescript::version} to "1.0"
+    set {plugcore::examplescript::folderName} to "Example"
+    # Optional, probably want to make it toggable.
+    if {@plugcoreEnableUpdates} is true:
+        set {plugcore::examplescript::versionPackage} to "https://example.com/raw/version.txt"
+        set {plugcore::examplescript::updateUrlMain} to "https://example.com/raw/examplescript.sk"
+        set {plugcore::examplescript::updateUrlPlugCore} to "https://example.com/raw/PlugCoreOptions.sk"
+    # Function requires a string to save your script into the Local DB.
+    # It is required to use whatever you used in your plugcore variables.
+    # EX: examplescript
+    addScript("examplescript")
+
+# Second, call the function on Startup
+on script load:
+    exampleFunction()
+
+# Call this on unload too.
+on script unload:
+    removeScript("examplescript")

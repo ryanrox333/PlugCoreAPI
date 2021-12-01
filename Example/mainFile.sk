@@ -1,0 +1,3 @@
+command hi:
+    trigger:
+        send "hi"
